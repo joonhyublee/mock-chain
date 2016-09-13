@@ -1,2 +1,2 @@
 # mock-chain
-Mock and test chained api calls, powered by proxy
+Easily mock and test chained api calls, powered by Proxy

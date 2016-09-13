@@ -1,7 +1,7 @@
 {
   "name": "mock-chain",
   "version": "0.1.0",
-  "description": "Mock and test chained api calls, powered by Proxy",
+  "description": "Easily mock and test chained api calls, powered by Proxy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
