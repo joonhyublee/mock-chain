@@ -14,6 +14,7 @@ import { mock_api, mock_call } from 'mock-chain';
 
 const api = mock_api();
 api.foo(1, 2, 3).bar.baz('a', 'b', 'c');
+// create a mock api and make a chained call on it
 
 console.log(api._calls.length);
 // only one chained call has been made on the api
@@ -24,7 +25,9 @@ console.log(api._calls[0]);
 // {"foo":{"_args":[1,2,3],"bar":{"baz":{"_args":["a","b","c"]}}}}
 
 const chained_call = mock_call(api => api.foo().bar('woof!').baz);
-// JSON object of an ad-hoc chained call later to be used in test
+// make a JSON object of an ad-hoc chained call later to be used in test
+
+console.log(chained_call);
 // {"foo":{"_args":[],"bar":{"_args":["woof!"],"baz":{}}}}
 ```
 
