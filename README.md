@@ -122,4 +122,4 @@ it('makes user a sandwich and writes to database', () => {
 - `mock_api()`: make a mock api proxy
 - `mock_api().foo(..).bar.baz(..)(..).qux`: make chained function calls on mock api
 - `mock_api()._calls`: get list of JSON of chained calls
-- `mock_call(fn)`: get list of JSON of a single ad-hoc chained call, where `fn` is `api => api.foo(..).bar.baz(..)(..).qux`
+- `mock_call(fn)`: get JSON of a single ad-hoc chained call, where `fn` is `api => api.foo(..).bar.baz(..)(..).qux`
