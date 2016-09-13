@@ -67,7 +67,7 @@ it('makes user a sandwich and writes to database', () => {
   const db = mock_api(); // create a mock mongodb api
   const io = mock_api(); // create a mock socket.io api
   
-  // pass apis to the function in whatever way that makes sense for your app
+  // pass mock apis to the function in whatever way that makes sense for your case
   const make_user_a_sandwich = make_user_a_sandwich.bind({ db, io });
   
   make_user_a_sandwich('joon');
