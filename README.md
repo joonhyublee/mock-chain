@@ -13,7 +13,7 @@ Then in your test file:
 import { mock_api, mock_call } from 'mock-chain';
 
 const api = mock_api();
-api.foo(1, 2, 3).bar.qux('a', 'b', 'c');
+api.foo(1, 2, 3).bar.baz('a', 'b', 'c');
 
 console.log(api._calls.length);
 // only one chained call has been made on the api
@@ -21,11 +21,11 @@ console.log(api._calls.length);
 
 console.log(api._calls[0]);
 // JSON object of the first chained call on the api
-// {"foo":{"_args":[1,2,3],"bar":{"qux":{"_args":["a","b","c"]}}}}
+// {"foo":{"_args":[1,2,3],"bar":{"baz":{"_args":["a","b","c"]}}}}
 
-console.log(mock_call(api => api.foo().bar('woof!').qux));
+console.log(mock_call(api => api.foo().bar('woof!').baz));
 // JSON object of an ad-hoc chained call later to be used in test
-// {"foo":{"_args":[],"bar":{"_args":["woof!"],"qux":{}}}}
+// {"foo":{"_args":[],"bar":{"_args":["woof!"],"baz":{}}}}
 ```
 
 ## Usage
@@ -62,7 +62,7 @@ export default function make_user_a_sandwich (username) {
     });
 }
 ```
-make_user_a_sandwich.test.js:
+`make_user_a_sandwich.test.js`:
 ```js
 import { mock_api, mock_call } from 'mock-chain';
 import make_user_a_sandwich from './make_user_a_sandwich';
@@ -118,3 +118,8 @@ it('makes user a sandwich and writes to database', () => {
   );
 });
 ```
+## API
+- `mock_api()`: make a mock api proxy
+- `mock_api().foo(..).bar.baz(..)(..).qux`: make chained function calls on mock api
+- `mock_api()._calls`: get list of JSON of chained calls
+- `mock_call(fn)`: get list of JSON of a single ad-hoc chained call, where `fn` is `api => api.foo(..).bar.baz(..)(..).qux`
