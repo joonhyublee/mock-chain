@@ -75,8 +75,7 @@ it('makes user a sandwich and writes to database', () => {
   const io = mock_api(); // create a mock socket.io api
   
   // pass mock api's to the function in whatever way that makes sense for your case
-  const make_user_a_sandwich = make_user_a_sandwich.bind({ db, io });
-  
+  make_user_a_sandwich = make_user_a_sandwich.bind({ db, io });
   make_user_a_sandwich('joon');
   
   // chained function call on db should have been made only once
@@ -103,7 +102,7 @@ it('makes user a sandwich and writes to database', () => {
   expect(io._calls.length).toEqual(2);
   
   // this should be the correct first chained call on io
-  expect(io._calls[0].toEqual(
+  expect(io._calls[0]).toEqual(
     mock_call(io => io
       .of('/friends')
       .in('subway')
@@ -112,7 +111,7 @@ it('makes user a sandwich and writes to database', () => {
   );
   
   // this test will *fail*, second call on io shouldn't contain username
-  expect(io._calls[1].toEqual(
+  expect(io._calls[1]).toEqual(
     mock_call(io => io
       .of('/not_friends')
       .in('subway')
