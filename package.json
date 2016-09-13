@@ -1,0 +1,19 @@
+{
+  "name": "mock-chain",
+  "version": "0.1.0",
+  "description": "Mock and test chained api calls, powered by Proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joonhyublee/mock-chain.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/joonhyublee/mock-chain/issues"
+  },
+  "homepage": "https://github.com/joonhyublee/mock-chain#readme"
+}
