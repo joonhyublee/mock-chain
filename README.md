@@ -75,8 +75,8 @@ it('makes user a sandwich and writes to database', () => {
   const io = mock_api(); // create a mock socket.io api
   
   // pass mock api's to the function in whatever way that makes sense for your case
-  make_user_a_sandwich = make_user_a_sandwich.bind({ db, io });
-  make_user_a_sandwich('joon');
+  const make_user_a_sandwich_bound = make_user_a_sandwich.bind({ db, io });
+  make_user_a_sandwich_bound('joon');
   
   // chained function call on db should have been made only once
   expect(db._calls.length).toEqual(1);
