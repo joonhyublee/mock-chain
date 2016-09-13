@@ -23,7 +23,7 @@ console.log(api._calls[0]);
 // JSON object of the first chained call on the api
 // {"foo":{"_args":[1,2,3],"bar":{"baz":{"_args":["a","b","c"]}}}}
 
-console.log(mock_call(api => api.foo().bar('woof!').baz));
+const chained_call = mock_call(api => api.foo().bar('woof!').baz);
 // JSON object of an ad-hoc chained call later to be used in test
 // {"foo":{"_args":[],"bar":{"_args":["woof!"],"baz":{}}}}
 ```
