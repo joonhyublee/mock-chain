@@ -83,7 +83,7 @@ it('makes user a sandwich and writes to database', () => {
   
   // a chained call on db should have been made with the following correct arguments
   expect(db._calls[0]).toEqual(
-    // a mock_call will produce a JSON that simulates a one-off chained call
+    // mock_call will output a JSON that simulates a one-off chained call
     mock_call(db => db
       .collection('users')
       .updateOne({ username: 'joon' }, { $set: { food: 'a delicious sandwich' } })
