@@ -81,16 +81,16 @@ it('makes user a sandwich and writes to database', () => {
   // chained function call on db should have been made only once
   expect(db._calls.length).toEqual(1);
   
-  // db chained call should been made with the following correct arguments
-  // a mock_call will produce a JSON that simulates a one-off chained call
+  // a chained call on db should have been made with the following correct arguments
   expect(db._calls[0]).toEqual(
+    // a mock_call will produce a JSON that simulates a one-off chained call
     mock_call(db => db
       .collection('users')
       .updateOne({ username: 'joon' }, { $set: { food: 'a delicious sandwich' } })
     )
   );
   
-  // this test will *fail*, since a yellow banana != a delecions sandwich
+  // this test will *fail*, since a yellow banana isn't a delecions sandwich
   expect(db._calls[0]).toEqual(
     mock_call(db => db
       .collection('users')
@@ -110,7 +110,7 @@ it('makes user a sandwich and writes to database', () => {
     )
   );
   
-  // this test will *fail*, second call on io shouldn't contain username
+  // this test will *fail*, since second chained call on io shouldn't contain username
   expect(io._calls[1]).toEqual(
     mock_call(io => io
       .of('/not_friends')
